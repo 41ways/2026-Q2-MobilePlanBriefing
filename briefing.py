@@ -21,7 +21,7 @@ from datetime import datetime, timezone, timedelta
 KST = timezone(timedelta(hours=9))
 GEMINI_API_URL = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-2.0-flash:generateContent"
+    "gemini-1.5-flash:generateContent"
 )
 
 PROMPT = """너는 국내 알뜰폰 커뮤니티(뽐뿌 휴대폰포럼, 알뜰폰포럼, 알고사, 모요, 세모통 등)의
