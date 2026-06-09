@@ -176,9 +176,14 @@ def get_briefing() -> str:
         method="POST",
     )
 
-    with urllib.request.urlopen(req) as res:
-        result = json.loads(res.read().decode())
-
+    try:
+        with urllib.request.urlopen(req) as res:
+            result = json.loads(res.read().decode())
+    except urllib.error.HTTPError as e:
+        print("오류 코드:", e.code)
+        print("오류 내용:", e.read().decode())
+        raise
+      
     return result["candidates"][0]["content"]["parts"][0]["text"].strip()
 
 
